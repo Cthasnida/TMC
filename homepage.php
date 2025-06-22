@@ -189,7 +189,9 @@ line-height: 1.3;
       .explore {
         font-size: 16px;
       }
+
     }
+
     .link {
       color: #FFFFFF;
     }
@@ -209,10 +211,10 @@ line-height: 1.3;
 
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       grid-template-areas:
-        "welcome   visit     about"
-        "logo      logo      about"
+        "welcome   visit     visit"
+        "welcome   logo      about"
         "impact    impact    impact";
       gap: 30px;
       max-width: 1200px;
@@ -220,6 +222,15 @@ line-height: 1.3;
     }
 
     .info-card {
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      font-family: 'Georgia', serif;
+      color: #111;
+      width: 100%;
+    }
+
+    .info-card2 {
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
@@ -258,8 +269,9 @@ line-height: 1.3;
     }
 
     .logo-center {
-      max-width: 80%;
+      max-width: 100%;
       height: auto;
+
     }
 
     .visit-btn {
@@ -277,6 +289,28 @@ line-height: 1.3;
     .visit-btn:hover {
       background: white;
       color: #00094b;
+    }
+
+    @media (max-width: 768px) {
+
+      .info-card.wide {
+        grid-column: span 2;
+      }
+
+      .info-card {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .info-grid {
+        grid-template-areas: 
+          "welcome"
+          "visit"
+          "about"
+          "logo"
+          "impact";
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -354,27 +388,27 @@ line-height: 1.3;
   </section>
   <section class="club-info-section">
     <div class="info-grid">
-      <div class="info-card dark">
+      <div class="info-card dark" style="grid-area: welcome">
         <h3>Welcome from the Instructor</h3>
         <p>Welcome to the Traditional Music Club of UTHM!<br><br>Here, we celebrate Malaysia’s rich cultural heritage through the mesmerizing rhythms and melodies of traditional instruments. Join us to preserve, share, and enjoy the beauty of traditional music.</p>
       </div>
 
-      <div class="info-card dark">
+      <div class="info-card dark" style="grid-area: visit">
         <h3>Arrange a Visit or Performance</h3>
         <p>Explore the charm of traditional music! Arrange a visit to our club or book a performance to experience the lively sounds of gamelan, kompang, sape, and more, performed by our talented members.</p>
         <button class="visit-btn">Arrange a visit</button>
       </div>
 
-      <div class="info-card dark center">
+      <div class="info-card dark center" style="grid-area: logo">
         <img src="logo.png" alt="Club Logo" class="logo-center">
       </div>
 
-      <div class="info-card light">
+      <div class="info-card light" style="grid-area: about">
         <h3>About the Club</h3>
         <p>Discover our mission to preserve and promote traditional Malaysian music, inspire appreciation for our cultural roots, and foster a community of passionate musicians and enthusiasts.</p>
       </div>
 
-      <div class="info-card light wide">
+      <div class="info-card light wide" style="grid-area: impact">
         <h3>Our Impact and Value</h3>
         <p>At the Traditional Music Club, we believe music is a bridge between generations and cultures. Our activities include performances, workshops, and collaborations that promote appreciation for Malaysia’s diverse musical traditions.</p>
       </div>
