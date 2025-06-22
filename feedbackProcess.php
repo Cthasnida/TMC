@@ -15,6 +15,18 @@ if ($stmt->execute()) {
     echo "Error: " . $stmt->error;
 }
 
+$name = trim($_POST['name']);
+$name = filter_var($name, FILTER_SANITIZE_STRING); 
+if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+    echo "Only letters and white space allowed";
+}
+
+$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Invalid email format";
+}
+
+
 $stmt->close();
 $conn->close();
 ?>
